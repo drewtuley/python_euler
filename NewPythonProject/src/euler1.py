@@ -11,7 +11,7 @@ def method1():
     sum=0
     threes=3
     fives=5
-    while threes <= 1000 or fives<= 1000 :
+    while threes < 1000 or fives< 1000 :
         if threes < fives:
             sum += threes
             threes += 3
@@ -28,7 +28,7 @@ def method1():
 def method2():
     sum=0
     x=3
-    while x <= 1000:
+    while x < 1000:
         if x % 3 == 0 or x % 5 == 0:
             sum += x
         x+=1 
@@ -40,7 +40,7 @@ def method3():
     sum=3
     x=3
     idx=0 
-    while x+gaps[idx]<= 1000:
+    while x+gaps[idx]< 1000:
         x+=gaps[idx]
         #print x
         sum+=x
@@ -52,6 +52,7 @@ def method3():
 
 
 if __name__ == "__main__":
-    method1()
-    method2()
-    method3()
+    import timeit
+    print (timeit.timeit("method1()", setup="from __main__ import method1", number=1))
+    print (timeit.timeit("method2()", setup="from __main__ import method2", number=1))
+    print (timeit.timeit("method3()", setup="from __main__ import method3", number=1))
