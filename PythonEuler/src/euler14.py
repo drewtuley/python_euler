@@ -5,8 +5,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-__author__="andrew.tuley"
-__date__ ="$20-Jul-2015 14:47:42$"
+__author__ = "andrew.tuley"
+__date__ = "$20-Jul-2015 14:47:42$"
 
 if __name__ == "__main__":
     """
@@ -25,15 +25,15 @@ if __name__ == "__main__":
     NOTE: Once the chain starts the terms are allowed to go above one million
     """
 
-    start=(1e6)-1
+    start = (1e6) - 1
     val = start
-    chain=1
+    chain = 1
     while val > 1:
-        #print chain, val
+        # print chain, val
         if val % 2 == 0:
             val /= 2
         else:
-            val = 1+(val*3)
+            val = 1 + (val * 3)
         chain += 1
-    
+
     print val, chain

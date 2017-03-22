@@ -5,48 +5,49 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-__author__="andrew.tuley"
-__date__ ="$20-Jul-2015 15:02:11$"
+__author__ = "andrew.tuley"
+__date__ = "$20-Jul-2015 15:02:11$"
 
+increasing = 1
+decreasing = -1
+unknown = 0
 
-increasing=1
-decreasing=-1
-unknown=0
 
 def is_bouncy(number):
     bouncy = False
-    
-    if number<100:
+
+    if number < 100:
         return False
-    
-    snum=str(number)
-    v=snum[0]
-    x=1
+
+    snum = str(number)
+    v = snum[0]
+    x = 1
     if snum[x] > v:
-        state=increasing
+        state = increasing
     elif snum[x] < v:
-        state=decreasing
+        state = decreasing
     else:
-        state=unknown
+        state = unknown
 
     while x < len(snum):
-        if snum[x] > v: 
+        if snum[x] > v:
             if state == decreasing:
-                bouncy=True
+                bouncy = True
                 break
-            state=increasing
+            state = increasing
         elif snum[x] < v:
             if state == increasing:
-                bouncy=True
+                bouncy = True
                 break
-            state=decreasing
+            state = decreasing
         v = snum[x]
         x += 1
-        
+
     if state == unknown:
         bouncy = False
-        
+
     return bouncy
+
 
 if __name__ == "__main__":
     """
@@ -64,19 +65,17 @@ if __name__ == "__main__":
 
     Find the least number for which the proportion of bouncy numbers is exactly 99%.
     """
-    
 
-    x=1
-    bouncy=0
-    stable=0
+    x = 1
+    bouncy = 0
+    stable = 0
     while x <= 2178000:
         if is_bouncy(x):
             bouncy += 1
         else:
             stable += 1
-        if stable*99 == bouncy*1:
+        if stable * 99 == bouncy * 1:
             print 'x={0} bouncy {1} not-bouncy {2}'.format(x, bouncy, stable)
-        
+
         x += 1
-    #print 'bouncy {0} not-bouncy {1}'.format(bouncy, stable)
-    
+        # print 'bouncy {0} not-bouncy {1}'.format(bouncy, stable)

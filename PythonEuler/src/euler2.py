@@ -5,8 +5,8 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-__author__="andrew.tuley"
-__date__ ="$20-Jul-2015 09:38:43$"
+__author__ = "andrew.tuley"
+__date__ = "$20-Jul-2015 09:38:43$"
 
 if __name__ == "__main__":
     """
@@ -14,13 +14,13 @@ if __name__ == "__main__":
         1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
         By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
     """
-    stack=[1,2]
-    sum=0
+    stack = [1, 2]
+    sum = 0
     while stack[1] < 4e6:
-        val = stack[0]+stack[1]
+        val = stack[0] + stack[1]
         if val % 2 == 0:
             sum += val
         stack.append(val)
         del stack[0]
-        
+
     print sum
